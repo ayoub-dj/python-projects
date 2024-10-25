@@ -1,18 +1,16 @@
-import threading
-import socket
+import threading, socket 
+from decouple import config
 
-# Choosing Nickname
 nickname = input("Choose your nickname: ")
+host = config('SERVERHOST', cast=str)
+port = config('SERVERPORT', cast=int)
 
-# Connecting To Server
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(('127.0.0.1', 55555))
+client.connect((host, port))
 
-# Listening to Server and Sending Nickname
 def receive():
     while True:
         try:
-            # Receive Message From Server
             message = client.recv(1024).decode('ascii')
             if message == 'NICK':
                 client.send(nickname.encode('ascii'))
@@ -23,7 +21,6 @@ def receive():
             client.close()
             break
 
-# Sending Messages To Server
 def write():
     while True:
         try:
@@ -34,9 +31,9 @@ def write():
             client.close()
             break
 
-# Starting Threads For Listening And Writing
-receive_thread = threading.Thread(target=receive)
-receive_thread.start()
+if __name__ == '__main__':
+    receive_thread = threading.Thread(target=receive)
+    receive_thread.start()
 
-write_thread = threading.Thread(target=write)
-write_thread.start()
+    write_thread = threading.Thread(target=write)
+    write_thread.start()
