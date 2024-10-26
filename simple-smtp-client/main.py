@@ -3,10 +3,10 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-host = config('SMTPHOST', cast=str)
-port = config('SMTPPORT', cast=int)
-user = config('SMTPUSER', cast=str)
-password = config('SMTPPASSWORD', cast=str)
+host = config('SMTP_HOST', cast=str)
+port = config('SMTP_PORT', cast=int)
+user = config('SMTP_USER', cast=str)
+password = config('SMTP_PASSWORD', cast=str)
 
 subject = 'Test email from python script'
 body_plain_text = 'You what\'s UP'

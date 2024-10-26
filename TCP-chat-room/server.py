@@ -1,8 +1,8 @@
 import threading, socket
 from decouple import config
 
-host = config('SERVERHOST', cast=str)
-port = config('SERVERPORT', cast=int)
+host = config('SERVER_HOST', cast=str)
+port = config('SERVER_PORT', cast=int)
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((host, port))

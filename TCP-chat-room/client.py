@@ -2,8 +2,8 @@ import threading, socket
 from decouple import config
 
 nickname = input("Choose your nickname: ")
-host = config('SERVERHOST', cast=str)
-port = config('SERVERPORT', cast=int)
+host = config('SERVER_HOST', cast=str)
+port = config('SERVER_PORT', cast=int)
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect((host, port))
