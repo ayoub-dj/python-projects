@@ -1,3 +1,7 @@
 {
-    "cSpell.words": []
+    "cSpell.words": [
+        "gunicorn",
+        "localpath",
+        "remotepath"
+    ]
 }
