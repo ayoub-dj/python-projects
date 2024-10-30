@@ -8,6 +8,7 @@ port = config('SMTP_PORT', cast=int)
 user = config('SMTP_USER', cast=str)
 password = config('SMTP_PASSWORD', cast=str)
 
+
 subject = 'Test email from python script'
 body_plain_text = 'You what\'s UP'
 html_body = """

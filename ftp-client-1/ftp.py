@@ -6,7 +6,6 @@ HOST = config('FTP_HOST', cast=str)
 USER = config('FTP_USERNAME', cast=str)
 PASSWORD = config('FTP_PASSWORD', cast=str)
 
-
 def upload_file(ftp, file):
     with open(file, 'rb') as f:
         ftp.storbinary('STOR requirements.txt', f)
